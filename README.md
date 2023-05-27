@@ -12,7 +12,7 @@
 
 ## 📚 알고리즘 Study
 
-- [과제 & 소스코드](https://doc.clickup.com/9003125046/p/h/8ca1j9p-1162/0d31d043b06818e)
+- [과제 & 소스코드](https://doc.clickup.com/9003125046/d/h/8ca1j9p-1182/90c5257cc64e0ba)
 
 # 학습 주제
 학습주제는 [gyoogle](https://github.com/gyoogle/tech-interview-for-developer)을 참고했습니다.
