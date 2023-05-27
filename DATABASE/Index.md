@@ -4,7 +4,8 @@
 인덱스 생성 컬럼을 where 조건으로 걸면 옵티마이저에서 판단하여 생성된 인덱스를 탈 수 있다.
 ![](https://velog.velcdn.com/images/soyeong125/post/cfaf4a9d-3291-4a44-ae87-a14a4448663a/image.png)
 <img width="389" alt="image" src="https://github.com/amazinguss/cs_study/assets/57309311/48391e22-33a6-4649-ac2b-b62da7c3ffad">
-위의 그림처럼 (age 칼럼을 정렬해서 새롭게 저장한 값)
+
+그림처럼 (age 칼럼을 정렬해서 새롭게 저장한 값)
 
 
 ### 인덱스의 특징
