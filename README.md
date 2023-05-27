@@ -21,7 +21,7 @@
 - [인덱스(INDEX)](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Index.md)
 - [트랜잭션(Transaction) 및 트랜잭션 격리 수준(Transaction Isolation Level)](https://github.com/amazinguss/cs_study/edit/main/README.md)
 - [DB LOCK](https://github.com/amazinguss/cs_study/blob/main/DATABASE/DB_lock.md)
-- [SQL Injection] (https://github.com/amazinguss/cs_study/blob/main/DATABASE/SQL%20Injection.md)
+- [SQL Injection](https://github.com/amazinguss/cs_study/blob/main/DATABASE/SQL%20Injection.md)
 - [키(Key) 정리]
 - [SQL - JOIN]
 - [SQL vs NoSQL]
