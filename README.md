@@ -18,16 +18,15 @@
 학습주제는 [gyoogle](https://github.com/gyoogle/tech-interview-for-developer)을 참고했습니다.
 
 ## 📌 데이터베이스
-
+- [인덱스(INDEX)](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Index.md)
+- [트랜잭션(Transaction) 및 트랜잭션 격리 수준(Transaction Isolation Level)](https://github.com/amazinguss/cs_study/edit/main/README.md)
+- [DB LOCK](https://github.com/amazinguss/cs_study/blob/main/DATABASE/DB_lock.md)
+- [SQL Injection] (https://github.com/amazinguss/cs_study/blob/main/DATABASE/SQL%20Injection.md)
 - [키(Key) 정리]
 - [SQL - JOIN]
-- [SQL Injection]
 - [SQL vs NoSQL]
 - [이상(Anomaly)]
 - [정규화]
-- [인덱스(INDEX)]
-- [트랜잭션(Transaction)]
-- 트랜잭션 격리 수준(Transaction Isolation Level)
 - 레디스(Redis)
 
 
