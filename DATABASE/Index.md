@@ -9,7 +9,7 @@
 
 
 ### 인덱스의 특징
-인덱스를 활용하면 select, update, delete의 성능이 함께 향상된다. 하지만 인덱스가 적용된 칼럼에 select, update, delete가 수행되면 index도 함께 select, update, delete에 대한 연산이 적용되기 때문에 오버헤드가 발생한다.
+인덱스를 활용하면 select와 함께 update, delete의 성능이 함께 향상된다. 하지만 인덱스가 적용된 칼럼에 insert, update, delete가 수행되면 index도 함께 insert, update, delete에 대한 연산이 적용되기 때문에 오버헤드가 발생한다.
 1. insert : 새로운 데이터에 대한 인덱스 추가
 2. delete : 삭제할 데이터에 대해 사용하지 않음 작업 진행
 3. update : 기존의 인덱스를 사용하지 않음 처리하고, 갱신된 데이터에 대한 인덱스 추가
@@ -26,7 +26,7 @@
 
 ### 인덱스를 사용해야 하는 경우
 - 데이터가 많은 테이블인 경우 (1개의 데이터가 있는 테이블은 굳이 인덱스를 하지 않는 편이 좋다)
-- select, update, delete가 자주 발생하지 않는 컬럼
+- insert, update, delete가 자주 발생하지 않는 컬럼
 - join이나 where 또는 order by 에 자주 사용되는 칼럼 (index를 통해 이미 sort되어 있기 때문에)
 - 데이터 중복도가 낮은 칼럼(분포도가 최대한인 칼럼, PK를 인덱스로 하는 것이 가장 최선)
 - 항상 = 으로 비교되는 컬럼
