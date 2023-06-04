@@ -25,17 +25,17 @@ ON e.manager_id = m.id
 ```
 
 1. 명시적 join 표현
-'''
+```
 SELECT *
 FROM employee INNER JOIN department
 ON employee.DepartmentID = department.DepartmentID;
-'''
+```
 3. 암시적 join 표현
-'''
+```
 SELECT *
 FROM employee, department
 WHERE employee.DepartmentID = department.DepartmentID;
-'''
+```
 
 ![image](https://github.com/amazinguss/cs_study/assets/57309311/10423d92-dadf-40ef-9afb-892695b6a734)
 
@@ -60,13 +60,13 @@ Driving Table로 테이블 하나를 선정하고, 이 테이블로부터 where�
 이 값을 가지고 Driven Table에 액세스 하면서 조인 조건을 만족하는 최종 결과값을 구한다. 
 
 2중 for문과 작동원리가 비슷하다.
-'''
+```
  for(i=0; i<dept.length; i++) { -- driving table 
     for(j=0; j<emp.length; j++) { -- driven table
        // Search
     } 
 }
-'''
+```
 
 
 (3)Driving Table이란/Driven Table이란?
