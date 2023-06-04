@@ -1,26 +1,50 @@
 # 📌 JOIN이란?
-2개 이상의 테이블을 연결하여 데이터를 검색하는 방법이다. 여러개의 테이블을 마치 하나의 테이블인 것처럼 활용하는 방법입니다.
+2개 이상의 테이블을 연결하는 방법입니다. 여러개의 테이블을 마치 하나의 테이블인 것처럼 활용하는 방법입
 연결을 위해서 적어도 하나의 컬럼을 공유하고 있어야하고 보통 primary key나 foreign key로 두 테이블을 연결합니다.
 
 ## 📌 JOIN의 종류는?
 1. INNER JOIN
 교집합
+1-1. CROSS JOIN
+조인되는 두 테이블에서 곱집합을 반환한다.
+기준 테이블이 A일 경우 A 데이터의 ROW를 B 테이블 전체와 JOIN 하는 방식
+A레코드 수 * B레코드 수 행을 생성한다.
 2. LEFT OUTER JOIN
 JOIN문 기준 왼쪽 테이블의 전체데이터와 A테이블과 B테이블의 중복 데이터를 조회
 3. RIGHT OUTER JOIN
 JOIN문 기준 오른쪽 테이블의 전체데이터와 A테이블과 B테이블의 중복 데이터를 조회
-4. FUUL OUTER JOIN
+4. FULL OUTER JOIN
 합집합
-5. CROSS JOIN
-모든 경우의 수를 표현
-기준 테이블이 A일 경우 A 데이터의 ROW를 B 테이블 전체와 JOIN 하는 방식
-결과 값은 A레코드 수 * B레코드 수 
-6. SELF JOIN
-자기자신과 조인 
+5. SELF JOIN
+한 테이블에서 자기자신에 조인 시키는 것
+계층형 구조에서 사용된다.
+'''
+SELECT * 
+FROM EMP e JOIN EMP m;
+ON e.manager_id = m.id
+'''
+
+1. 명시적 join 표현
+'''
+SELECT *
+FROM employee INNER JOIN department
+ON employee.DepartmentID = department.DepartmentID;
+'''
+3. 암시적 join 표현
+'''
+SELECT *
+FROM employee, department
+WHERE employee.DepartmentID = department.DepartmentID;
+'''
 
 ![image](https://github.com/amazinguss/cs_study/assets/57309311/10423d92-dadf-40ef-9afb-892695b6a734)
 
 오라클은 OUTER JOIN아 있지만, MYSQL은 없어서 LEFT + RIGHT JOIN
+
+## 📌 JOIN시 고려사항
+- 조인할 대상의 집합을 최소화
+조건을 먼저 적용하여 관계를 맺고 조인을 맞는 것이 효과적이다.
+- 인덱스를 활용하면, 조인의 연산 비용을 극적으로 낮출 수 있다.
 
 ## 📌 JOIN의 방식은?
 1. Nested Loop Join (중첩 반복 조인)
@@ -32,16 +56,27 @@ JOIN문 기준 오른쪽 테이블의 전체데이터와 A테이블과 B테이�
 2개 이상 테이블에서 하나의 테이블을 기준으로 순차적으로 상대방 Row를 결합하여 원하는 결과를 추출하는 방식
 
 (2) 처리 방식
-Driving Table의 처리 범위를 하나씩 액세스 하면서 추출된 값으로 Driving Table을 조인하는 방식으로 동작
-(바깥 테이블의 처리 범위를 하나씩 접근하면서 추출된 값으로 테이블을 조인하는 방식)
+Driving Table로 테이블 하나를 선정하고, 이 테이블로부터 where절에 정의된 검색 조건을 만족하는 데이터를 걸러낸다. 
+이 값을 가지고 Driven Table에 액세스 하면서 조인 조건을 만족하는 최종 결과값을 구한다. 
+
+2중 for문과 작동원리가 비슷하다.
+'''
+ for(i=0; i<dept.length; i++) { -- driving table 
+    for(j=0; j<emp.length; j++) { -- driven table
+       // Search
+    } 
+}
+'''
+
 
 (3)Driving Table이란/Driven Table이란?
-- Driving Table (선행 테이블) :조인 시 먼저 액세스 되는 테이블로 where 절로 최대한 데이터를 거를 수 있는 테이블이다. 보통 데이터 양이 적은 테이블로 선정한다.
-- Driven Table (후행 테이블) :조인 시 나중에 액세스 되는 테이블로 조인을 위한 인덱스가 생성되어 있는 것이 좋다.(인덱스가 없다면 Driving Table에서 도출된 결과가 맞는지 매번 full scan으로 비교해야함)
+- Driving Table (선행 테이블):조인 시 **먼저 액세스** 되는 테이블로 where 절로 최대한 데이터를 거를 수 있는 테이블이다. 보통 데이터 양이 적은 테이블로 선정한다.(옵티마이저가 결정)
+- Driven Table (후행 테이블):조인 시 **나중에 액세스** 되는 테이블로 조인을 위한 인덱스가 생성되어 있는 것이 좋다.(인덱스가 없다면 Driving Table에서 도출된 결과가 맞는지 매번 full scan으로 비교해야함)
 
 (4) 해당 조인을 사용하는 이유
 - 한쪽 입력이 작고 (Driving Table), 다른 한쪽 입력이 크면서 join 열에 인덱스가 있는 경우 (Driven Table)
 - I/O 연산과 비교 연산이 가장 적게 필요하기 때문
+- 조인해야 할 데이터가 많지 않은 경우 사용
 
 (5) 특징
 - 선행 테이블의 결과를 통해 후행 테이블에 액세스 할 때 랜덤 I/O가 발생한다(두 테이블의 랜덤 I/O가 높게 나옴)
@@ -51,10 +86,10 @@ Driving Table의 처리 범위를 하나씩 액세스 하면서 추출된 값으
 - 후행 테이블에 인덱스가 필요하다.
 
 (6) Driving Table (선행 테이블) 유도 방법
+적절한 드라이빙 테이블을 선정하므로써 성능 개선 가능 : 드라이빙 테이블의 row가 더 적어야함
 - 힌트 사용
-```
-
-```
+from 절에 먼저 기술
+leading (table명)
 - 뷰 사용
 뷰를 통해 데이터를 먼저 읽어내고, 이 결과로 다음 데이터를 연결하는 방식으로 시도
 
