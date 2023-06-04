@@ -22,7 +22,7 @@
 - [트랜잭션(Transaction) 및 트랜잭션 격리 수준(Transaction Isolation Level)](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Transaction.md)
 - [DB LOCK](https://github.com/amazinguss/cs_study/blob/main/DATABASE/DB_lock.md)
 - [SQL Injection](https://github.com/amazinguss/cs_study/blob/main/DATABASE/SQL%20Injection.md)
-- [키(Key) 정리]
+- [키(Key) 정리](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Key_%EC%A0%95%EB%A6%AC)
 - [SQL - JOIN](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Join.md)
 - [SQL vs NoSQL]
 - [이상(Anomaly)](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Anomaly.md)
@@ -43,7 +43,7 @@
 - [Git 과 GitHub 에 대해서]
 - [정규식]
 - [Generic]
-- final
+- [final]
 
 
 ## 📌 자료구조
@@ -51,10 +51,10 @@
 - [Array & ArrayList & LinkedList]
 - [스택(Stack) & 큐(Queue)]
 - [힙(Heap)]
-- 이진탐색트리(Binary Search Tree)
-- 해시(Hash)
-- 트라이(Trie)
-- B-Tree & B+Tree
+- [이진탐색트리(Binary Search Tree)]
+- [해시(Hash)]
+- [트라이(Trie)]
+- [B-Tree & B+Tree]
 
 
 ## 📌 네트워크
