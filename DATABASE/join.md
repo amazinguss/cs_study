@@ -93,9 +93,9 @@ leading (table명)
 - 뷰 사용
 뷰를 통해 데이터를 먼저 읽어내고, 이 결과로 다음 데이터를 연결하는 방식으로 시도
 
-### 🔍 Merge Join / Sort Merge Join (정렬 병합)
+### 🔍 Sort Merge Join (정렬 병합)
 (1) 정의
-양 테이블에 각각 접근하여 결과를 정렬하고, 정렬한 결과를 scan해가면서 연결 조건으로 MERGE하는 방식
+양 테이블에 각각 접근하여 결과를 정렬하고, 정렬한 결과를 scan해가면서 연결 조건으로 merge하는 방식
 
 (2) 동작 방식
 1. 각 테이블에 대해 동시에 독립적으로 데이터를 먼저 읽어 들인다.
@@ -103,6 +103,7 @@ leading (table명)
 3. 정렬이 모두 끝난 후 조인 작업을 수행한다.
 
 (3) 해당 조인을 사용하는 이유
+- 조회의 범위가 많을 때 사용
 - 두 테이블을 join한 열을 미리 정렬된 상태로 가져올 수 있는 경우
 - 연결 고리에 인덱스가 전혀 없는 경우
 - 대용량의 자료를 조인할 때 유리한 경우
@@ -110,49 +111,37 @@ leading (table명)
 - 인덱스 사용에 따른 랜덤 액세스의 오버헤드가 많은 경우
 - 두 입력 크기가 서로 비슷한 경우 merge join과 hash join 성능이 비슷하지만, 두 입력 크기가 다른 경우 hash join 성능이 더 좋다.
 
-(4) 특징
-- 동시 처리 (두 테이블을 동시에 읽고 테이블이 join 준비가 되면 join 수행)
-- 독립적 (처리 범위를 줄일 수 있는 수단은 각 테이블의 while 조건)
-- 인덱스 유무는 중요하지 않다 (join열을 정렬하고 join하기 때문에)
-- 정렬에 따라 메모리 사용량이 증가
-
-(5) 성능 개선 방법
+(4) 성능 개선 방법
 - 양쪽 테이블을 access 하는 과정에서 적절한 scan을 사용해서 access 속도를 빠르게 해준다.
 - join 열이 이미 정렬되었다면 속도 향상 됨
 - 두 테이블의 access 속도와 정렬 속도를 최대한 비슷하게 맞춘다. (두 테이블의 작업이 모두 끝나야 join이 시작되기 때문)
 - sort_area_size를 적당한 크기로 최적화 시킨다.
-sort_area_size: 두 테이블이 정렬 작업을 위해 사용되는 정렬 공간에서 할당받을 수 있는 메모리 사이즈. 만약 사이즈가 부족하면 temporary table space를 사용하게 되어 딜레이 발생
+sort_area_size: 두 테이블이 정렬 작업을 위해 사용되는 별도의 정렬 공간. 할당받을 수 있는 메모리 사이즈. 만약 사이즈가 부족하면 temporary table space를 사용하게 되어 딜레이 발생
 
 ### 🔍 HASH Join
 (1) 정의
-- 두 테이블 중 하나를 Hash Table로 선정하여, 테이블의 key 값을 Hash 알고리즘으로 비교하여 조인을 수행하는 방식
-- Sort Merge 조인은 Sort시 부하가 많이 발생하여 이를 보완하기 위한 방법으로 Sort대신 해쉬값을 이용하는 join이 생김
-- 
+- 두 테이블 중 하나를 Hash Table로 선정하여, 조인될 테이블의 key 값을 Hash 알고리즘으로 비교하여 조인을 수행하는 방식
+- Sort Merge 조인은 테이블의 크기가 커서 Sort시 부하가 많이 발생하여 이를 보완하기 위한 방법으로 Sort대신 해쉬값을 이용하는 join이 생김
+
 (2) 동작 방식
 - 둘 중 작은 집합(Build Input)을 읽어 Hash area에 Hash table을 생성 (해시 함수에서 리턴 받은 버킷 주소로 찾아가 해시 체인에 엔트리 연결)
 - 반대쪽 큰 집합(Probe Input)을 읽어 Hash table을 탐색하면서 Join
 - 해시 함수에서 리턴 받은 버킷 주소로 찾아가 해시 체인을 스캔하면서 데이터를 찾는다.
+<img width="672" alt="image" src="https://github.com/amazinguss/cs_study/assets/57309311/b24d1453-dd7a-4518-934e-1a418f24d8af">
 
 (3) 해당 조인을 사용하는 이유
 1. join 컬럼에 적당한 인덱스가 없어서 Nested Loop Join이 비효율적일 때
 2. join access량이 많아 random access 부하가 심하여 Nested Loop Join이 비효율적일 때
-3. join 입력 크기가 크고, 정렬되지 않았을 때 (대용량 데이터를 조인할 때)
+3. 대용량 데이터를 조인할 때(join 입력 크기가 크고, 정렬되지 않았을 때)
 4. 수행빈도가 낮고 쿼리 수행 시간이 오래 걸리는 대용량 테이블을 join할 때
 5. '=' 연산을 수행할 때
 6. 집합 일치 연산(inner/outer/semi join/intersecion/union/difference 등), 중복제거, 그룹핑을 할 때
 7. 비용 기반 옵티마이저를 사용할 때
 
+(4) 성능 개선 포인트
+- **해시 테이블을 만드는 과정을 효율화한다.** 해시 테이블 생성 비용 최적화, 해시 테이블로 만들 Build Input이 hash area에 담길 정도로 충분히 작아야하고 해시 키 칼럼에 중복 값이 거의 없어야 됨
+- **CPU의 성능을 향상한다.** 해시 버킷이 조인 집합에 구성되어 해시 함수 결과를 저장해야 하는데 기본적으로 HASH_AREA_SIZE에 지정된 크기만큼의 메모리가 할당되어 사용됩니다. 이러한 처리에는 많은 메모리와 CPU 자원을 소모하게 된다. 그렇기에 CPU의 자원이 넉넉하다면 다른 조인에 비해 보다 좋은 효율을 내지만 부족한 상황에서는 다른 조인 방법보다 느려질 수도 있다. 그러므로 CPU의 성능을 향상한다면 HASH JOIN의 성능을 향상할 수 있다.
+- **충분한 PGA 메모리 확보** Hash Area는 PGA 메모리에 할당되는데 Build Input이 HASH_AREA_SIZE를 초과하게 되면 가장 큰 순서대로 Hash Bucket이 Temporary Table Space로 내려가서 구성된다. 디스크로 내려간 Hash Bucket에 변경이 일어날 때마다 디스크 I/O가 발생하게 되어 성능이 현저하게 저하된다.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+HASH_AREA_SIZE
+HASH JOIN에 사용되는 최대 메모리 SIZE를 지정하는 설정값. Hash Join에서 사용되는 해쉬 메모리 크기(HASH_AREA_SIZE)의 기본 값은 SORT_AREA_SIZE의 2배이다. 9i 이상에서 값을 지정하는 것을 권장하지 않고, PGA_AGGREGATE_TARGET parameter 사용을 권장한다.
