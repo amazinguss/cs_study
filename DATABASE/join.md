@@ -18,11 +18,11 @@ JOIN문 기준 오른쪽 테이블의 전체데이터와 A테이블과 B테이�
 5. SELF JOIN
 한 테이블에서 자기자신에 조인 시키는 것
 계층형 구조에서 사용된다.
-'''
+```
 SELECT * 
 FROM EMP e JOIN EMP m;
 ON e.manager_id = m.id
-'''
+```
 
 1. 명시적 join 표현
 '''
