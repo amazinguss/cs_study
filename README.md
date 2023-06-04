@@ -23,11 +23,11 @@
 - [DB LOCK](https://github.com/amazinguss/cs_study/blob/main/DATABASE/DB_lock.md)
 - [SQL Injection](https://github.com/amazinguss/cs_study/blob/main/DATABASE/SQL%20Injection.md)
 - [키(Key) 정리]
-- [SQL - JOIN]
+- [SQL - JOIN](https://github.com/amazinguss/cs_study/blob/main/DATABASE/join.md)
 - [SQL vs NoSQL]
 - [이상(Anomaly)](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Anomaly.md)
 - [정규화]
-- 레디스(Redis)
+- [레디스(Redis)]
 
 
 ## 📌 개발상식
