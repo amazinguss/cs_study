@@ -28,7 +28,7 @@
 - [이상(Anomaly)](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Anomaly.md)
 - [정규화]
 - [레디스(Redis)]
-
+- [힌트(Hint)](https://github.com/amazinguss/cs_study/blob/main/DATABASE/Hint.md)
 
 ## 📌 개발상식
 
