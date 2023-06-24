@@ -55,6 +55,7 @@
 > - 프로세스의 자원을 공유하며 프로세스 실행의 일부가 되기 때문에 동시 작업이 가능하다.
 > - 하나의 프로세스 내에 여러 개의 스레드가 들어 있는 상태이다.
 > <br>
+>
 > ![](https://blog.kakaocdn.net/dn/c6hP8P/btr5A5vOmq1/lc1Ya3NafKtUsg6s10SCIK/img.png)
 >
 > - 스레드는 프로세스 내에서 각각 Stack만 따로 할당받고 Code, Data, Heap 영역은 공유한다. 
