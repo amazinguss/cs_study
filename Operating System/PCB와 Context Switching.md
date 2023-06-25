@@ -43,7 +43,7 @@ CPU는 한번에 하나의 프로세스만 수행할 수 있다. 하지만 실�
 이렇게 CPU가 프로세스를 바꿔가며 실행하기 위해서 문맥 교환이 필요하다. 
 
 ## Context Swithing 과정
-<img width="529" alt="image" src="https://github.com/amazinguss/cs_study/assets/57309311/d2f5ba76-8c6e-4219-96d6-b203db266205">
+<img width="529" alt="image" src="https://github.com/amazinguss/cs_study/assets/57309311/d2f5ba76-8c6e-4219-96d6-b203db266205"></br>
 1. Process P1 이 실행되는 도중 인터럽트나 시스템 콜이 발생한다.</br>
 2. PCB1에 P1의 정보를 저장하고 PCB2의 상태를 불러온다.</br>
 3. Process P2를 실행한다.</br>
