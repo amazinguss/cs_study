@@ -76,7 +76,7 @@
 - [프로세스 주소 공간]
 - [인터럽트(Interrupt)]
 - [시스템 콜(System Call)]
-- [PCB와 Context Switching]
+- [PCB와 Context Switching](https://github.com/amazinguss/cs_study/blob/main/Operating%20System/PCB%EC%99%80%20Context%20Switching.md)
 - [IPC(Inter Process Communication)]
 - [CPU 스케줄링]
 - [데드락(DeadLock)]
