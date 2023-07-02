@@ -81,6 +81,9 @@
 
 # 인터럽트 과정
 <img width="534" alt="image" src="https://github.com/amazinguss/cs_study/assets/57309311/ffe05abe-65b9-4834-b5bc-0a5a4002907b">
+
+</br>
+
 Process A 실행 중 디스크에서 어떤 데이터를 읽어오라는 명령을 받았다고 가정해보자.</br>
 - process A는 system call을 통해 인터럽트를 발생시킨다.
 - CPU는 현재 진행 중인 기계어 코드를 완료한다.
