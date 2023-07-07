@@ -98,8 +98,6 @@ Process A 실행 중 디스크에서 어떤 데이터를 읽어오라는 명령�
 > IRET Interrupt Return
 > 이전 테스크로 다시 돌아가는 어셈블리 명령어로 ISR의 마지막 명령어
 
-</br>
-
 > ISR Interrupt Service Routine
 > 인터럽트 핸들러 Interrupt handler 라고도 함
 > 인터럽트가 접수되면 각각의 인터럽트에 대응하여 특정 기능을 처리하는 기계어 코드 루틴(커널이 실행)
@@ -118,7 +116,7 @@ Process A 실행 중 디스크에서 어떤 데이터를 읽어오라는 명령�
 <img width="578" alt="스크린샷 2023-07-02 오전 11 17 21" src="https://github.com/amazinguss/cs_study/assets/57309311/dec9a89d-b46d-480e-bf9f-8ebe4506967d">
 
 
-> 출처
+> 출처 </br>
 > https://medium.com/@lazypanda43/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8-%EC%A2%85%EB%A5%98%EC%99%80-%EC%B2%98%EB%A6%AC%EA%B3%BC%EC%A0%95%EA%B3%BC-%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-c95c26909472 </br>
 > https://doh-an.tistory.com/31</br>
 > https://fjvbn2003.tistory.com/306</br>
