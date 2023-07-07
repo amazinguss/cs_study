@@ -66,7 +66,7 @@
 - [대칭키 & 공개키]
 - [HTTP & HTTPS]
 - [로드 밸런싱(Load Balancing)]
-- Blocking & Non-Blocking I/O
+- [Blocking & Non-Blocking I/O]
 
   
 ## 📌 운영체제
@@ -98,9 +98,9 @@
 - [어댑터 패턴]
 - [싱글톤 패턴]
 - [탬플릿 메소드 패턴]
-- 팩토리 메소드 패턴
-- 옵저버 패턴
-- 스트레티지 패턴
+- [팩토리 메소드 패턴]
+- [옵저버 패턴]
+- [스트레티지 패턴]
 
 
 
@@ -118,10 +118,10 @@
 - [이분 탐색(Binary Search)]
 - [세그먼트 트리]
 - [해시(Hash)]
-- DFS & BFS
-- 최장 증가 수열(LIS)
-- 최소 공통 조상(LCA)
-- 동적 계획법(Dynamic Programming)
+- [DFS & BFS]
+- [최장 증가 수열(LIS)]
+- [최소 공통 조상(LCA)]
+- [동적 계획법(Dynamic Programming)]
 
 
 
@@ -140,10 +140,10 @@
   - [Casting(업캐스팅 & 다운캐스팅)]
   - [Promotion & Casting]
   - [고유 락(Intrinsic Lock)]
-  - Error & Exception
-  - java 8 & java 11 차이
-  - Access Modifier
-  - Wrapper class
+  - [Error & Exception]
+  - [java 8 & java 11 차이]
+  - [Access Modifier]
+  - [Wrapper class]
 - Javascript
   - [JS Event Loop]
   - [Hoisting]
@@ -160,7 +160,7 @@
 - [HTTP Method]
 - [RESTFul API 란?]
 - [브라우저의 작동 원리]
-- DOM(Document Object Model)
+- [DOM(Document Object Model)]
   - [Event Bubbling and Capturing]
   - [Event delegation]
 - [CSS Selector 우선순위]
@@ -171,16 +171,16 @@
 - [서버 사이드 렌더링 vs 클라이언트 사이드 렌더링]
 - [CSS Methodology]
 - [Normalize.css vs Reset.css]
-- 웹 컴포넌트
-- 쿠키(Cookie) & 세션(Session)
-- 웹 서버와 WAS의 차이점
-- OAuth
-- JWT(JSON Web Token)
-- Authentication & Authorization
-- 로그 레벨
-- UI와 UX
-- Vue.js
-- React
-- Vue.js vs React.js
-- 네이티브 앱 & 웹 앱 & 하이브리드 앱
-- PWA(Progressive Web App)
+- [웹 컴포넌트]
+- [쿠키(Cookie) & 세션(Session)]
+- [웹 서버와 WAS의 차이점]
+- [OAuth]
+- [JWT(JSON Web Token)]
+- [Authentication & Authorization]
+- [로그 레벨]
+- [UI와 UX]
+- [Vue.js]
+- [React]
+- [Vue.js vs React.js]
+- [네이티브 앱 & 웹 앱 & 하이브리드 앱]
+- [PWA(Progressive Web App)]
