@@ -79,7 +79,7 @@
 - [PCB와 Context Switching](https://github.com/amazinguss/cs_study/blob/main/Operating%20System/PCB%EC%99%80%20Context%20Switching.md)
 - [프로세스 간 통신 (IPC & LPC)]
 - [CPU 스케줄링 & 디스패처 (Dispatcher)](https://github.com/amazinguss/cs_study/blob/main/Operating%20System/CPU%20%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%20%26%20%EB%94%94%EC%8A%A4%ED%8C%A8%EC%B2%98%20(Dispatcher).md)
-- [CPU 스케줄링 알고리즘]
+- [CPU 스케줄링 알고리즘](https://github.com/amazinguss/cs_study/blob/main/Operating%20System/CPU%20%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md)
 - [프로세스 동기화]
 - [Race Condition]
 - [세마포어(Semaphore) & 뮤텍스(Mutex)]
