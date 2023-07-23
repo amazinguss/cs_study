@@ -8,7 +8,7 @@ CPU 스케줄링은 준비 큐에 있는 어느 프로세스에 CPU 코어를 �
 - 평균 대기 시간(Average Waiting Time)이 길어질 수 있다.(대화형 시스템에 부적절)
 - 응답 시간(Response Time)이 길어질 수 있다.
 - 반환시간(Turnaround Time) 면에서는 좋을 수 있다.
-- Convoy Effect(호위 효과)가 발생할 수 있다. 
+- Convoy Effect(호위 효과)가 발생할 수 있다. (CPU 사용시간이 긴 프로세스에 의해 사용시간이 짧은 프로세스들이 오래 기다리는 현상)
 
 **FCFS 예시** </br>
 ![](https://velog.velcdn.com/images/soyeong125/post/c75a2844-98c5-43e3-a52e-32e8d45e3bdc/image.png)
